@@ -1,6 +1,6 @@
-let BlockType     = require('../../models/BlockType')
-let Block         = require('../../models/Block')
-let typesForBlock = require('../typesForBlock')
+let BlockType     = require('../../src/models/BlockType')
+let Block         = require('../../src/models/Block')
+let typesForBlock = require('../../src/utils/typesForBlock')
 
 describe('Utils - typesForBlock', function() {
 

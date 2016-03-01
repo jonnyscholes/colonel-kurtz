@@ -23,26 +23,17 @@ module.exports = function(config) {
     frameworks: [ 'mocha', 'sinon-chai' ],
 
     files: [
-      './src/**/__tests__/*.test.js*',
-      './addons/**/__tests__/*.test.js*'
+      './test/**/*.test.js*'
     ],
 
     preprocessors: {
-      './src/**/__tests__/*.test.js*'    : [ 'webpack', 'sourcemap' ],
-      './addons/**/__tests__/*.test.js*' : [ 'webpack', 'sourcemap' ]
+      './test/**/*.test.js*' : [ 'webpack', 'sourcemap' ]
     },
 
     reporters: noCoverage ? [ 'mocha' ] : [ 'mocha', 'coverage' ],
 
     mochaReporter: {
       output: 'minimal'
-    },
-
-    coverageReporter: {
-      reporters: [
-        { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' }
-      ]
     },
 
     webpack: {

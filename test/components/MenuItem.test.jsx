@@ -1,5 +1,5 @@
-let Colonel = require('../../Colonel')
-let Item    = require('../MenuItem')
+let Colonel = require('../../src/Colonel')
+let Item    = require('../../src/components/MenuItem')
 let config  = require('./fixtures/colonelConfig')
 let render  = TestUtils.renderIntoDocument
 

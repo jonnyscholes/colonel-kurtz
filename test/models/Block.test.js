@@ -1,4 +1,4 @@
-let Block = require('../Block')
+let Block = require('../../src/models/Block')
 
 describe('Models - Block', function() {
 

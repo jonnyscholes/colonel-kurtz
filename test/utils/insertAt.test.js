@@ -1,4 +1,4 @@
-let insertAt = require('../insertAt')
+let insertAt = require('../../src/utils/insertAt')
 
 describe('Utils - insertAt', function() {
   let list = [1, 2, 3, 4, 5]

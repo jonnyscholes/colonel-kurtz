@@ -1,7 +1,7 @@
-let Actions   = require('../../actions/blocks')
-let Colonel   = require('../../Colonel')
+let Actions   = require('../../src/actions/blocks')
+let Colonel   = require('../../src/Colonel')
 let DOM       = require('react-dom')
-let BlockMenu = require('../BlockMenu')
+let BlockMenu = require('../../src/components/BlockMenu')
 let config    = require('./fixtures/colonelConfig')
 let render    = TestUtils.renderIntoDocument
 

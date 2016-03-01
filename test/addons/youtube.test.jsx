@@ -1,4 +1,4 @@
-const YouTube  = require('../index')
+const YouTube  = require('../../addons/youtube')
 const Simulate = TestUtils.Simulate
 const render   = TestUtils.renderIntoDocument
 

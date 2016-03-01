@@ -1,5 +1,5 @@
-let Block = require('../../models/Block')
-let siblingsOf = require('../siblingsOf')
+let Block = require('../../src/models/Block')
+let siblingsOf = require('../../src/utils/siblingsOf')
 
 describe('Utils - siblingsOf', function() {
 

@@ -1,5 +1,5 @@
 const DOM      = require('react-dom')
-const Embedded = require('../embedded')
+const Embedded = require('../../addons/common/embedded')
 const Simulate = TestUtils.Simulate
 const render   = TestUtils.renderIntoDocument
 

@@ -1,5 +1,5 @@
-let Block        = require('../../models/Block')
-let blocksToJson = require('../blocksToJson')
+let Block        = require('../../src/models/Block')
+let blocksToJson = require('../../src/utils/blocksToJson')
 
 describe('Utils - blocksToJson', function() {
 

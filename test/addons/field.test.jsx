@@ -1,4 +1,4 @@
-const Field  = require('../field')
+const Field  = require('../../addons/common/field')
 const render = TestUtils.renderIntoDocument
 const DOM    = require('react-dom')
 

@@ -1,4 +1,4 @@
-let respondsTo = require('../respondsTo')
+let respondsTo = require('../../src/utils/respondsTo')
 
 describe('Utils - respondsTo', function() {
 

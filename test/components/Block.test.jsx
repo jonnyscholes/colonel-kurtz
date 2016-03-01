@@ -1,6 +1,6 @@
-let Actions = require('../../actions/blocks')
-let Block   = require('../Block')
-let Colonel = require('../../Colonel')
+let Actions = require('../../src/actions/blocks')
+let Block   = require('../../src/components/Block')
+let Colonel = require('../../src/Colonel')
 let DOM     = require('react-dom')
 let config  = require('./fixtures/colonelConfig')
 let render  = TestUtils.renderIntoDocument
@@ -12,7 +12,6 @@ describe('Components - Block', function() {
     app = new Colonel(config)
 
     app.start(function() {
-      sinon.spy(app, 'push')
       component = render(<Block app={ app } block={ app.state.blocks[0] } />)
       done()
     })

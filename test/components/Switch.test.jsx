@@ -1,8 +1,8 @@
-let Actions = require('../../actions/blocks')
-let Colonel = require('../../Colonel')
+let Actions = require('../../src/actions/blocks')
+let Colonel = require('../../src/Colonel')
 let DOM     = require('react-dom')
 let Fixture = require('./fixtures/testBlockType')
-let Switch  = require('../Switch')
+let Switch  = require('../../src/components/Switch')
 
 describe('Components - Switch', function() {
   let render = TestUtils.renderIntoDocument
