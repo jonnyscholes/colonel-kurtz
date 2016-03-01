@@ -1,7 +1,7 @@
-let Animator  = require('./Animator')
+let Animator  = require('./animator')
 let FocusTrap = require('react-focus-trap')
 let React     = require('react')
-let Btn       = require('./Button')
+let Btn       = require('./button')
 
 module.exports = React.createClass({
 

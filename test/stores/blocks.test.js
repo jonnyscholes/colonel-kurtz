@@ -1,5 +1,5 @@
-let Block  = require('../../src/models/Block')
-let Blocks = require('../../src/stores/Blocks')
+let Block  = require('../../src/models/block')
+let Blocks = require('../../src/stores/blocks')
 
 describe('Stores - Block', function() {
 

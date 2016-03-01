@@ -3,8 +3,8 @@
  * A custom block editor
  */
 
-let BlockTypes = require('./stores/BlockTypes')
-let Blocks     = require('./stores/Blocks')
+let BlockTypes = require('./stores/block-types')
+let Blocks     = require('./stores/blocks')
 let Microcosm  = require('microcosm')
 let bootstrap  = require('./plugins/bootstrap')
 let render     = require('./plugins/render')

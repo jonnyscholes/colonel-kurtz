@@ -1,5 +1,5 @@
-let BlockTypeGroup = require('./BlockTypeGroup')
-let Btn            = require('./Button')
+let BlockTypeGroup = require('./block-type-group')
+let Btn            = require('./button')
 let React          = require('react')
 let DOM            = require('react-dom')
 let groupBy        = require('group-by')

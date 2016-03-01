@@ -1,6 +1,6 @@
-let Block  = require('./Block')
+let Block  = require('./block')
 let React  = require('react')
-let Blocks = require('../stores/Blocks')
+let Blocks = require('../stores/blocks')
 
 let EditorBlock = React.createClass({
 

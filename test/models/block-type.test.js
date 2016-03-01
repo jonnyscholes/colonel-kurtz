@@ -1,4 +1,4 @@
-let BlockType = require('../../src/models/BlockType')
+let BlockType = require('../../src/models/block-type')
 
 describe('Models - BlockType', function() {
 

@@ -3,11 +3,11 @@
  * toggling between viewing modes and viewing managed content
  */
 
-let Animator    = require('./Animator')
-let Blocks      = require('../stores/Blocks')
-let EditorBlock = require('./EditorBlock')
+let Animator    = require('./animator')
+let Blocks      = require('../stores/blocks')
+let EditorBlock = require('./editor-block')
 let React       = require('react')
-let Switch      = require('./Switch')
+let Switch      = require('./switch')
 
 module.exports = React.createClass({
 

@@ -8,7 +8,7 @@
  */
 
 let Actions    = require('../actions/blocks')
-let Block      = require('../models/Block')
+let Block      = require('../models/block')
 let insertAt   = require('../utils/insertAt')
 let siblingAt  = require('../utils/siblingAt')
 

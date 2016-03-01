@@ -1,5 +1,5 @@
 let React = require('react')
-let DefaultBlockType = require('../components/DefaultBlockType')
+let DefaultBlockType = require('../components/default-block-type')
 
 let defaults = {
   component   : DefaultBlockType,

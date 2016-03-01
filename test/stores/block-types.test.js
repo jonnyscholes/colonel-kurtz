@@ -1,5 +1,5 @@
 let React = require('react')
-let BlockTypes = require('../../src/stores/BlockTypes')
+let BlockTypes = require('../../src/stores/block-types')
 
 describe('Stores - BlockType', function() {
   let fixture = {

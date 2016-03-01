@@ -1,4 +1,4 @@
-let Block        = require('../../src/models/Block')
+let Block        = require('../../src/models/block')
 let blocksToJson = require('../../src/utils/blocksToJson')
 
 describe('Utils - blocksToJson', function() {

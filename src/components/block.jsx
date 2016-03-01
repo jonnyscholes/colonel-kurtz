@@ -1,8 +1,8 @@
 let Actions    = require('../actions/blocks')
-let Animator   = require('./Animator')
-let BlockMenu  = require('./BlockMenu')
+let Animator   = require('./animator')
+let BlockMenu  = require('./block-menu')
 let React      = require('react')
-let Switch     = require('./Switch')
+let Switch     = require('./switch')
 let respondsTo = require('../utils/respondsTo')
 
 module.exports = React.createClass({

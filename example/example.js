@@ -4,13 +4,13 @@
 
 require('./example.scss')
 
-let ColonelKurtz = require('../src/Colonel')
+let ColonelKurtz = require('../src/colonel')
 
 let blockTypes = [
   {
     id          : 'section',
     label       : 'Section',
-    component   : require('./blockTypes/Section'),
+    component   : require('./blockTypes/section'),
     types       : [ 'child-text', 'image', 'youtube' ],
     maxChildren : 3
   },

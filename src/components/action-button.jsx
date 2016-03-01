@@ -1,4 +1,4 @@
-let Btn   = require('./Button')
+let Btn   = require('./button')
 let React = require('react')
 let DOM   = require('react-dom')
 

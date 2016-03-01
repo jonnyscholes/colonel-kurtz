@@ -1,7 +1,7 @@
-let Animator  = require('./Animator')
+let Animator  = require('./animator')
 let FocusTrap = require('react-focus-trap')
-let Handle    = require('./MenuHandle')
-let Item      = require('./MenuItem')
+let Handle    = require('./menu-handle')
+let Item      = require('./menu-item')
 let React     = require('react')
 let menuItems = require('../config/menu')
 

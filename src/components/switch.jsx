@@ -1,8 +1,8 @@
-let ActionButton  = require('./ActionButton')
+let ActionButton  = require('./action-button')
 let Actions       = require('../actions/blocks')
-let Blocks        = require('../stores/Blocks')
+let Blocks        = require('../stores/blocks')
 let React         = require('react')
-let SwitchNav     = require('./SwitchNav')
+let SwitchNav     = require('./switch-nav')
 let classNames    = require('classnames')
 let typesForBlock = require('../utils/typesForBlock')
 

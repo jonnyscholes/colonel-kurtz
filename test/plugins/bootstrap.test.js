@@ -1,4 +1,4 @@
-let Colonel   = require('../../src/Colonel')
+let Colonel   = require('../../src/colonel')
 let bootstrap = require('../../src/plugins/bootstrap')
 
 describe('bootstrap plugin', function() {

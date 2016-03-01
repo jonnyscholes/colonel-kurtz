@@ -1,4 +1,4 @@
-let Block = require('../models/Block')
+let Block = require('../models/block')
 
 module.exports = function jsonToBlocks (blocks, parent) {
   // If blocks are null or undefined, assume an empty list

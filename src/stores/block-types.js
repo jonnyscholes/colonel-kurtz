@@ -6,7 +6,7 @@
  * Colonel Kurtz how that action manipulates block type data.
  */
 
-let BlockType = require('../models/BlockType')
+let BlockType = require('../models/block-type')
 
 module.exports = {
   getInitialState() {

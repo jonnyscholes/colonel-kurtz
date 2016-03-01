@@ -1,6 +1,6 @@
 let Actions = require('../src/actions/blocks')
-let Block   = require('../src/models/Block')
-let Colonel = require('../src/Colonel')
+let Block   = require('../src/models/block')
+let Colonel = require('../src/colonel')
 
 describe('ColonelKurtz', function () {
   let app;

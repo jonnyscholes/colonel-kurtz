@@ -1,4 +1,4 @@
-let Block = require('../../src/models/Block')
+let Block = require('../../src/models/block')
 let siblingsOf = require('../../src/utils/siblingsOf')
 
 describe('Utils - siblingsOf', function() {

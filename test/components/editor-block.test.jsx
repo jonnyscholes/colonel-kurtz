@@ -1,6 +1,6 @@
-let Colonel     = require('../../src/Colonel')
+let Colonel     = require('../../src/colonel')
 let DOM         = require('react-dom')
-let EditorBlock = require('../../src/components/EditorBlock')
+let EditorBlock = require('../../src/components/editor-block')
 let config      = require('./fixtures/colonelConfig')
 let render      = TestUtils.renderIntoDocument
 
