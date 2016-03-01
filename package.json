@@ -85,7 +85,7 @@
   "dependencies": {
     "classnames": "~2",
     "group-by": "0.0.1",
-    "microcosm": "~8.1",
+    "microcosm": "~9.20.0",
     "react-addons-css-transition-group": "~0.14",
     "react-focus-trap": "~2.0",
     "react-ink": "~5.0",

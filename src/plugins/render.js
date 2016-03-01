@@ -16,7 +16,7 @@ module.exports = {
   register(app, { el }, next) {
     this.render(app, el)
 
-    app.listen(i => this.render(app,el))
+    app.listen(i => this.render(app, el))
 
     next()
   }

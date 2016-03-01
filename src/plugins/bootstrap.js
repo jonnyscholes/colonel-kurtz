@@ -26,11 +26,11 @@ module.exports = {
       blocks = parseElement(blocks)
     }
 
-    app.replace({ blocks, blockTypes: this.filter(blockTypes, allow) })
-
-    app.set('maxChildren', maxChildren)
-
-    next()
+    app.replace({
+      blocks,
+      blockTypes: this.filter(blockTypes, allow),
+      maxChildren
+    }, next)
   }
 
 }

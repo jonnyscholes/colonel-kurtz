@@ -42,13 +42,13 @@ let Blocks = {
    * `blocksToJson` takes a list of blocks and transforms them into
    * the nested structure shown in the front end
    */
-  serialize: require('../utils/blocksToJson'),
+  serialize: state => require('../utils/blocksToJson')(state),
 
   /**
    * jsonToBlocks takes this nested structure and flattens
    * into a list for this store.
    */
-  deserialize: require('../utils/jsonToBlocks'),
+  deserialize: state => require('../utils/jsonToBlocks')(state),
 
   create(state, { type, parent, position }) {
     let record = new Block({ clientOnly: true, parent, type })
