@@ -54,7 +54,7 @@ module.exports = React.createClass({
 
   render() {
     let { app, block, children } = this.props
-    let { component:Component } = this.getBlockType()
+    let { component:Component, ...schema } = this.getBlockType()
     let { menuOpen, extraMenuItems } = this.state
 
     // Determine content by taking the default content and extend it with
@@ -64,7 +64,7 @@ module.exports = React.createClass({
     return (
       <div className="col-editor-block">
         <div className={ `col-block col-block-${ block.type }` }>
-          <Component ref="block" { ...block } content={ content } onChange={ this._onChange } >
+          <Component ref="block" { ...block } schema={ schema } content={ content } onChange={ this._onChange } >
             <Switch app={ app } parent={ block } />
             <Animator className="col-block-children">
               { children }

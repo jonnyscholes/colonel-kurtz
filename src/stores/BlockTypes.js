@@ -6,7 +6,7 @@
  * Colonel Kurtz how that action manipulates block type data.
  */
 
-let BlockType = require('../models/BlockType')
+import Schema from '../models/schema'
 
 module.exports = {
   getInitialState() {
@@ -14,7 +14,7 @@ module.exports = {
   },
 
   deserialize(blockTypes=[]) {
-    return blockTypes.map(options => new BlockType(options))
+    return blockTypes.map(options => new Schema(options))
   },
 
   serialize() {

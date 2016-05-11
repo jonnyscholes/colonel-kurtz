@@ -1,49 +1,32 @@
-/**
- * ColonelKurtz Example
- */
+import Colonel from '../src/Colonel'
 
-require('./example.scss')
+import './example.scss'
 
-let ColonelKurtz = require('../src/Colonel')
+let editor = new Colonel({
+  el: document.getElementById('app'),
 
-let blockTypes = [
-  {
-    id          : 'section',
-    label       : 'Section',
-    component   : require('./blockTypes/Section'),
-    types       : [ 'child-text', 'image', 'youtube' ],
-    maxChildren : 3
-  },
-  {
-    id        : 'medium',
-    label     : 'Medium Editor',
-    component : require('../addons/medium'),
-    group     : 'Rich Text'
-  },
-  {
-    id        : 'child-text',
-    label     : 'Child Text',
-    component : require('../addons/medium'),
-    root      : false
-  },
-  {
-    id        : 'image',
-    label     : 'Image',
-    group     : 'Media',
-    component : require('../addons/image')
-  },
-  {
-    id        : 'youtube',
-    label     : 'YouTube',
-    group     : 'Media',
-    component : require('../addons/youtube')
-  }
-]
+  schema: [{
+    "id": "person",
+    "title": "Person",
 
-let editor = new ColonelKurtz({
-  el          : document.getElementById('app'),
-  blockTypes  : blockTypes,
-  maxChildren : 5
+    "properties": {
+      "firstName": {
+        "type": "string",
+        "description": "The person's first name"
+      },
+      "lastName": {
+        "type": "string",
+        "description": "The person's last name"
+      },
+      "age": {
+        "description": "Age in years",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "required": ["firstName", "lastName"]
+  }]
+
 })
 
 editor.addPlugin(require('./plugins/storage'))

@@ -2,8 +2,6 @@ var Server  = require("webpack-dev-server")
 var Webpack = require("webpack")
 var config  = require('../webpack.config')
 
-config.devtool = '#eval-source-map'
-
 config.entry = [
   "webpack-dev-server/client?http://localhost:8080",
   'webpack/hot/only-dev-server',
