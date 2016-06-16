@@ -6,22 +6,21 @@ let editor = new Colonel({
   el: document.getElementById('app'),
 
   schema: [{
-    "id": "person",
-    "title": "Person",
+    "id": "hero",
+    "title": "Hero",
 
     "properties": {
-      "firstName": {
+      "title": {
         "type": "string",
-        "description": "The person's first name"
+        "description": "The main heading."
       },
-      "lastName": {
+      "subtitle": {
         "type": "string",
-        "description": "The person's last name"
+        "description": "Secondary text below the heading."
       },
-      "age": {
-        "description": "Age in years",
-        "type": "integer",
-        "minimum": 0
+      "image": {
+        "description": "A background image behind the text",
+        "type": "image"
       }
     },
     "required": ["firstName", "lastName"]
