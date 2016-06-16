@@ -23,7 +23,7 @@ let editor = new Colonel({
         "type": "image"
       }
     },
-    "required": ["firstName", "lastName"]
+    "required": ["title", "image"]
   }]
 
 })
