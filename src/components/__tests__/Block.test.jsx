@@ -8,14 +8,11 @@ let render  = TestUtils.renderIntoDocument
 describe('Components - Block', function() {
   let app, component;
 
-  beforeEach(function(done) {
+  beforeEach(function() {
     app = new Colonel(config)
 
-    app.start(function() {
-      sinon.spy(app, 'push')
-      component = render(<Block app={ app } block={ app.state.blocks[0] } />)
-      done()
-    })
+    sinon.spy(app, 'push')
+    component = render(<Block app={ app } block={ app.state.blocks[0] } />)
   })
 
   it ('adds a class name according to the block id', function() {

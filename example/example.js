@@ -50,7 +50,3 @@ let editor = new ColonelKurtz({
   blockTypes  : blockTypes,
   maxChildren : 5
 })
-
-editor.addPlugin(require('./plugins/storage'))
-
-editor.start()

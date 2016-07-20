@@ -6,9 +6,8 @@ let render  = TestUtils.renderIntoDocument
 describe('Components - Menu Item', function() {
   let app;
 
-  beforeEach(function(done) {
+  beforeEach(function() {
     app = new Colonel(config)
-    app.start(done)
   })
 
   it ('has a default noop onClick prop', function() {

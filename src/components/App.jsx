@@ -3,35 +3,38 @@
  * toggling between viewing modes and viewing managed content
  */
 
-let Animator    = require('./Animator')
-let Blocks      = require('../stores/Blocks')
-let EditorBlock = require('./EditorBlock')
-let React       = require('react')
-let Switch      = require('./Switch')
+import React       from 'react'
+import Actions     from '../actions/blocks'
+import Presenter   from 'microcosm/addons/presenter'
+import Animator    from './Animator'
+import EditorBlock from './EditorBlock'
+import Switch      from './Switch'
 
-module.exports = React.createClass({
+export default class App extends Presenter {
 
-  propTypes: {
-    app : React.PropTypes.object.isRequired
-  },
+  viewModel() {
+    return {
+      parents : state => state.blocks.filter(block => !block.parent)
+    }
+  }
 
-  getBlock(block, i) {
-    return (<EditorBlock key={ block } app={ this.props.app } block={ block } />)
-  },
+  getBlock(block) {
+    return (<EditorBlock key={ block } block={ block } />)
+  }
+
+  createBlock(app, id, position, parent) {
+    return app.push(Actions.create, id, position, parent)
+  }
 
   render() {
-    let { app } = this.props
-
-    let parents = Blocks.filterChildren(app.state.blocks)
-
     return (
       <div className="colonel">
-        <Switch app={ app } />
+        <Switch app={ this.app } />
         <Animator className="col-block-children">
-          { parents.map(this.getBlock) }
+          { this.state.parents.map(this.getBlock, this) }
         </Animator>
       </div>
     )
   }
 
-})
+}

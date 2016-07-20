@@ -7,9 +7,8 @@ let render      = TestUtils.renderIntoDocument
 describe('Components - EditorBlock', function() {
   let app;
 
-  beforeEach(function(done) {
+  beforeEach(function() {
     app = new Colonel(config)
-    app.start(done)
   })
 
   it ('renders child blocks', function() {

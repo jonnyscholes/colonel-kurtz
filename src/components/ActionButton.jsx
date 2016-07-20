@@ -1,6 +1,5 @@
-let Btn   = require('./Button')
-let React = require('react')
-let DOM   = require('react-dom')
+import Btn from './Button'
+import React from 'react'
 
 module.exports = React.createClass({
 
@@ -17,14 +16,14 @@ module.exports = React.createClass({
   },
 
   focus() {
-    DOM.findDOMNode(this).focus()
+    this.refs.btn.focus()
   },
 
   render() {
     let { className, disabled, label, onClick, symbol } = this.props
 
     return (
-      <Btn className={ className } onClick={ onClick } disabled={ disabled }>
+      <Btn className={ className } onClick={ onClick } disabled={ disabled } ref="btn">
         <span className="col-hidden">{ label }</span>
         <span aria-hidden="true">{ symbol }</span>
       </Btn>

@@ -13,20 +13,16 @@ let parseElement = function (element) {
   return data
 }
 
-module.exports = {
+function filter (blockTypes, acceptable) {
+  if (!acceptable) return blockTypes
 
-  filter(blockTypes, acceptable) {
-    if (!acceptable) return blockTypes
+  return blockTypes.filter(type => acceptable.indexOf(type.id) > -1)
+}
 
-    return blockTypes.filter(type => acceptable.indexOf(type.id) > -1)
-  },
-
-  register(app, { allow, maxChildren=Infinity, blocks, blockTypes }, next) {
-    if (blocks instanceof HTMLElement) {
-      blocks = parseElement(blocks)
-    }
-
-    app.replace({ maxChildren, blocks, blockTypes: this.filter(blockTypes, allow) }, next)
+export default function register (app, { allow, maxChildren = Infinity, blocks, blockTypes }) {
+  if (blocks instanceof HTMLElement) {
+    blocks = parseElement(blocks)
   }
 
+  app.replace({ maxChildren, blocks, blockTypes: filter(blockTypes, allow) })
 }

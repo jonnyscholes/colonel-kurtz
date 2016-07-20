@@ -32,14 +32,6 @@ let Blocks = {
     return state.filter(block => block.valueOf() === id)[0]
   },
 
-  getChildren(state, parent) {
-    return state.filter(i => i.parent === parent)
-  },
-
-  filterChildren(state) {
-    return state.filter(i => !i.parent)
-  },
-
   /**
    * `blocksToJson` takes a list of blocks and transforms them into
    * the nested structure shown in the front end

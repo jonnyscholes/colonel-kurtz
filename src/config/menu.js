@@ -6,7 +6,7 @@ module.exports = [
     id : 'moveBefore',
     label : 'Move Up',
     onClick(app, block) {
-      app.push(move, [block, -1])
+      return app.push(move, block, -1)
     },
     isDisabled(app, block) {
       return siblingsOf(app.state.blocks, block)[0] === block
@@ -16,7 +16,7 @@ module.exports = [
     id : 'moveAfter',
     label : 'Move Down',
     onClick(app, block) {
-      app.push(move, [block, 1])
+      return app.push(move, block, 1)
     },
     isDisabled(app, block) {
       return siblingsOf(app.state.blocks, block).pop() === block
@@ -26,7 +26,7 @@ module.exports = [
     id : 'destroy',
     label : 'Remove',
     onClick(app, block) {
-      app.push(destroy, block.id)
+      return app.push(destroy, block.id)
     }
   }
 ]

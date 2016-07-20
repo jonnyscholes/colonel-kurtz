@@ -3,11 +3,11 @@
  * A custom block editor
  */
 
-let BlockTypes = require('./stores/BlockTypes')
-let Blocks     = require('./stores/Blocks')
-let Microcosm  = require('microcosm')
-let bootstrap  = require('./plugins/bootstrap')
-let render     = require('./plugins/render')
+import BlockTypes from './stores/BlockTypes'
+import Blocks     from './stores/Blocks'
+import Microcosm  from 'microcosm'
+import bootstrap  from './plugins/bootstrap'
+import render     from './plugins/render'
 
 /**
  * Colonel Kurtz is a layer on top of the Microcosm framework
@@ -20,7 +20,7 @@ let render     = require('./plugins/render')
 class ColonelKurtz extends Microcosm {
 
   constructor(options) {
-    super()
+    super(options)
 
     /**
      * A block is an individual chunk of content. It can have children
@@ -37,12 +37,12 @@ class ColonelKurtz extends Microcosm {
      * The bootstrap plugin takes seed data and prepares the
      * application's state beyond initializing
      */
-    this.addPlugin(bootstrap, options)
+    bootstrap(this, options)
 
     /**
      * The render plugin handles updating the browser ui
      */
-    this.addPlugin(render, options)
+    render(this, options)
   }
 
   toJSON() {

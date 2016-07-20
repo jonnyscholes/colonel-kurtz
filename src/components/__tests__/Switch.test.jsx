@@ -8,13 +8,11 @@ describe('Components - Switch', function() {
   let render = TestUtils.renderIntoDocument
   let app;
 
-  beforeEach(function(done) {
+  beforeEach(function() {
     app = new Colonel({
       el : document.createElement('div'),
       blockTypes: [ Fixture ]
     })
-
-    app.start(done)
   })
 
   it ('closes when it gets new properties', function() {
@@ -46,7 +44,7 @@ describe('Components - Switch', function() {
   })
 
   describe('When more than one block type is given', function() {
-    beforeEach(function(done) {
+    beforeEach(function() {
       let SecondType = Object.create(Fixture)
 
       SecondType.id = 'another'
@@ -55,7 +53,6 @@ describe('Components - Switch', function() {
         el : document.createElement('div'),
         blockTypes: [ Fixture, SecondType ]
       })
-      app.start(done)
     })
 
     it ('_onToggle sets the state to open', function() {
@@ -66,7 +63,7 @@ describe('Components - Switch', function() {
   })
 
   describe('When given a block with a parent', function() {
-    beforeEach(function(done) {
+    beforeEach(function() {
       let SecondType = Object.create(Fixture)
 
       SecondType.id = 'another'
@@ -77,8 +74,6 @@ describe('Components - Switch', function() {
         blockTypes: [ Fixture, SecondType ],
         value: [{ type: SecondType.id, content: {}, blocks: [] }]
       })
-
-      app.start(done)
     })
 
     it ('getTypes should display multiple blocks', function() {
@@ -90,14 +85,12 @@ describe('Components - Switch', function() {
   })
 
   describe('When given a block with a parent that has no types', function() {
-    beforeEach(function(done) {
+    beforeEach(function() {
       app = new Colonel({
         el : document.createElement('div'),
         blocks : [{ type: Fixture.id, content: {}, blocks: [] }],
         blockTypes : [ Fixture ]
       })
-
-      app.start(done)
     })
 
     it ('renders nothing', function() {
@@ -131,7 +124,7 @@ describe('Components - Switch', function() {
       types: [ 'limited' ]
     })
 
-    beforeEach(function(done) {
+    beforeEach(function() {
       let type    = LimitedFixture.id
       let content = {}
       let block   = { type, content, blocks: [] }
@@ -145,8 +138,6 @@ describe('Components - Switch', function() {
         }],
         blockTypes : [ LimitedFixture ]
       })
-
-      app.start(done)
     })
 
     it ('does not enable toggles when its provided block has too many children', function() {
@@ -156,8 +147,8 @@ describe('Components - Switch', function() {
   })
 
   describe('Creating editor children', function() {
-    beforeEach(function(done) {
-      let block   = { type: Fixture.id, content: {}, blocks: [] }
+    beforeEach(function() {
+      let block = { type: Fixture.id, content: {}, blocks: [] }
 
       app = new Colonel({
         el : document.createElement('div'),
@@ -165,8 +156,6 @@ describe('Components - Switch', function() {
         blocks : [ block, block, block ],
         blockTypes : [ Fixture ]
       })
-
-      app.start(done)
     })
 
     it ('does not enable toggles when the apps maxChildren setting is exceeded', function() {

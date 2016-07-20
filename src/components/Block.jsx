@@ -85,6 +85,6 @@ module.exports = React.createClass({
 
   _onChange(content) {
     let { app, block } = this.props
-    app.push(Actions.update, [block, content])
+    app.push(Actions.update, block, content)
   }
 })

@@ -1,28 +1,29 @@
-let Block  = require('./Block')
-let React  = require('react')
-let Blocks = require('../stores/Blocks')
+import React     from 'react'
+import Presenter from 'microcosm/addons/presenter'
+import Block     from './Block'
 
-let EditorBlock = React.createClass({
+export default class EditorBlock extends Presenter {
 
-  propTypes: {
-    app   : React.PropTypes.object.isRequired,
-    block : React.PropTypes.object.isRequired
-  },
+  viewModel({ block }) {
+    return {
+      children : state => state.blocks.filter(block => block.parent === block)
+    }
+  }
+
+  createBlock(app, id, position, parent) {
+    return app.push(Actions.create, id, position, parent)
+  }
 
   getBlock(block) {
-    return (<EditorBlock key={ block } app={ this.props.app } block={ block } />)
-  },
+    return (<EditorBlock key={ block } block={ block } />)
+  }
 
   render() {
-    let { app, block } = this.props
-
     return (
-      <Block app={ app } block={ block }>
-        { Blocks.getChildren(app.state.blocks, block).map(this.getBlock) }
+      <Block app={ this.app } block={ this.props.block }>
+        { this.state.children.map(this.getBlock, this) }
       </Block>
     )
   }
 
-})
-
-module.exports = EditorBlock
+}

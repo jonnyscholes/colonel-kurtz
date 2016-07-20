@@ -3,7 +3,7 @@ let bootstrap = require('../bootstrap')
 
 describe('bootstrap plugin', function() {
 
-  it ('can serialize an input', function(done) {
+  it ('can serialize an input', function() {
     let input = document.createElement('textarea')
 
     input.value = JSON.stringify([{
@@ -18,38 +18,28 @@ describe('bootstrap plugin', function() {
       blockTypes: [{ id: 'section' }]
     })
 
-    app.start(function() {
-      app.state.blocks[0].should.have.property('type', 'section')
-      done()
-    })
+    app.state.blocks[0].should.have.property('type', 'section')
   })
 
-  it ('filter block types given a list', function(done) {
+  it ('filter block types given a list', function() {
     let app = new Colonel({
       el : document.createElement('div'),
       allow: [ 'list' ],
       blockTypes : [{ id: 'list' }, { id: 'text' }]
     })
 
-    app.start(function() {
-      let types = app.state.blockTypes
+    let types = app.state.blockTypes
 
-      types.length.should.equal(1)
-      types[0].id.should.equal('list')
-
-      done()
-    })
+    types.length.should.equal(1)
+    types[0].id.should.equal('list')
   })
 
-  it ('allows all block types if given no allow option', function(done) {
+  it ('allows all block types if given no allow option', function() {
     let app = new Colonel({
       el : document.createElement('div'),
       blockTypes : [{ id: 'list' }, { id: 'text' }]
     })
 
-    app.start(function() {
-      app.state.blockTypes.length.should.equal(2)
-      done()
-    })
+    app.state.blockTypes.length.should.equal(2)
   })
 })

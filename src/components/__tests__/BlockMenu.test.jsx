@@ -8,21 +8,17 @@ let render    = TestUtils.renderIntoDocument
 describe('Components - BlockMenu', function() {
   let app, menu;
 
-  beforeEach(function(done) {
+  beforeEach(function() {
     app = new Colonel(config)
 
     sinon.spy(app, 'push')
 
-    app.start(function(error) {
-      menu = React.createElement(BlockMenu, {
-        app: app,
-        block: app.state.blocks[0],
-        onOpen: sinon.stub(),
-        onExit: sinon.stub(),
-        active: true
-      })
-
-      done(error)
+    menu = React.createElement(BlockMenu, {
+      app: app,
+      block: app.state.blocks[0],
+      onOpen: sinon.stub(),
+      onExit: sinon.stub(),
+      active: true
     })
   })
 
@@ -52,7 +48,7 @@ describe('Components - BlockMenu', function() {
 
     TestUtils.Simulate.click(DOM.findDOMNode(test.refs.moveBefore))
 
-    app.push.should.have.been.calledWith(Actions.move, [block, -1])
+    app.push.should.have.been.calledWith(Actions.move, block, -1)
   })
 
   it ('disables Move Before if the block is the first child', function() {
@@ -66,7 +62,7 @@ describe('Components - BlockMenu', function() {
 
     TestUtils.Simulate.click(DOM.findDOMNode(test.refs.moveAfter))
 
-    app.push.should.have.been.calledWith(Actions.move, [block, 1])
+    app.push.should.have.been.calledWith(Actions.move, block, 1)
   })
 
   it ('disables Move After if the block is the first child', function() {

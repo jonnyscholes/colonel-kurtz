@@ -6,15 +6,13 @@ describe('ColonelKurtz', function() {
   let app;
   let el;
 
-  beforeEach(function(done) {
+  beforeEach(function() {
     el = document.createElement('div')
     app = new Colonel({
       el : el,
       blocks : [new Block({ type: 'section' })],
       blockTypes : [{ id: 'section' }]
     })
-
-    app.start(done)
   })
 
   it ('renders to the provided element', function() {
@@ -29,8 +27,8 @@ describe('ColonelKurtz', function() {
 
   describe('when a create action is sent to the app', function() {
 
-    beforeEach(function(done) {
-      app.push(Actions.create, 'section', done)
+    beforeEach(function() {
+      app.push(Actions.create, 'section')
     })
 
     it ('should prepend a new block', function() {
@@ -45,8 +43,8 @@ describe('ColonelKurtz', function() {
 
   describe('when a destroy action is sent to the app', function() {
 
-    beforeEach(function(done) {
-      app.push(Actions.destroy, app.state.blocks[0], done)
+    beforeEach(function() {
+      app.push(Actions.destroy, app.state.blocks[0])
     })
 
     it ('should prepend a new block', function() {
@@ -57,8 +55,8 @@ describe('ColonelKurtz', function() {
 
   describe('when an update action is sent to the app', function() {
 
-    beforeEach(function(done) {
-      app.push(Actions.update, [app.state.blocks[0], { foo: 'bar' }], done)
+    beforeEach(function() {
+      app.push(Actions.update, app.state.blocks[0], { foo: 'bar' })
     })
 
     it ('should update the content of that block', function() {
@@ -74,7 +72,7 @@ describe('ColonelKurtz', function() {
 
       let block = app.state.blocks[0]
 
-      app.push(Actions.move, [block, 1])
+      app.push(Actions.move, block, 1)
 
       app.state.blocks.concat().pop().should.equal(block)
     })

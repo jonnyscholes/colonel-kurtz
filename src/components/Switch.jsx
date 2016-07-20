@@ -1,12 +1,15 @@
-let ActionButton  = require('./ActionButton')
-let Actions       = require('../actions/blocks')
-let Blocks        = require('../stores/Blocks')
-let React         = require('react')
-let SwitchNav     = require('./SwitchNav')
-let classNames    = require('classnames')
-let typesForBlock = require('../utils/typesForBlock')
+import ActionButton  from './ActionButton'
+import Blocks        from '../stores/Blocks'
+import React         from 'react'
+import SwitchNav     from './SwitchNav'
+import classNames    from 'classnames'
+import typesForBlock from '../utils/typesForBlock'
 
 module.exports = React.createClass({
+
+  contextTypes: {
+    send: React.PropTypes.func
+  },
 
   propTypes: {
     app : React.PropTypes.object.isRequired
@@ -78,18 +81,19 @@ module.exports = React.createClass({
   },
 
   _onAdd(type) {
-    let { app, position, parent } = this.props
-    app.push(Actions.create, [type.id, position, parent])
+    let { position, parent } = this.props
+    this.context.send('createBlock', type.id, position, parent)
   },
 
   _onToggle() {
     let { app, position, parent } = this.props
 
     let types = typesForBlock(app.state.blockTypes, parent)
+
     // If only one type exists, instead of opening the nav, just
     // create that element
     if (types.length === 1) {
-      app.push(Actions.create, [types[0].id, position, parent])
+      return this.context.send('createBlock', types[0].id, position, parent)
     }
 
     this.open()
