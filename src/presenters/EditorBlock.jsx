@@ -1,17 +1,15 @@
 import React     from 'react'
 import Presenter from 'microcosm/addons/presenter'
-import Block     from './Block'
+import Block     from '../views/Block'
+
+const childOf = block => state => state.blocks.filter(child => child.parent === block)
 
 export default class EditorBlock extends Presenter {
 
   viewModel({ block }) {
     return {
-      children : state => state.blocks.filter(block => block.parent === block)
+      children : childOf(block)
     }
-  }
-
-  createBlock(app, id, position, parent) {
-    return app.push(Actions.create, id, position, parent)
   }
 
   getBlock(block) {
@@ -20,7 +18,7 @@ export default class EditorBlock extends Presenter {
 
   render() {
     return (
-      <Block app={ this.app } block={ this.props.block }>
+      <Block repo={ this.repo } block={ this.props.block }>
         { this.state.children.map(this.getBlock, this) }
       </Block>
     )

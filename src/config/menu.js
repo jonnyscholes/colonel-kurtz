@@ -5,28 +5,28 @@ module.exports = [
   {
     id : 'moveBefore',
     label : 'Move Up',
-    onClick(app, block) {
-      return app.push(move, block, -1)
+    onClick(repo, block) {
+      return repo.push(move, block, -1)
     },
-    isDisabled(app, block) {
-      return siblingsOf(app.state.blocks, block)[0] === block
+    isDisabled(repo, block) {
+      return siblingsOf(repo.state.blocks, block)[0] === block
     }
   },
   {
     id : 'moveAfter',
     label : 'Move Down',
-    onClick(app, block) {
-      return app.push(move, block, 1)
+    onClick(repo, block) {
+      return repo.push(move, block, 1)
     },
-    isDisabled(app, block) {
-      return siblingsOf(app.state.blocks, block).pop() === block
+    isDisabled(repo, block) {
+      return siblingsOf(repo.state.blocks, block).pop() === block
     }
   },
   {
     id : 'destroy',
     label : 'Remove',
-    onClick(app, block) {
-      return app.push(destroy, block.id)
+    onClick(repo, block) {
+      return repo.push(destroy, block.id)
     }
   }
 ]

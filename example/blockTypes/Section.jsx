@@ -1,5 +1,5 @@
 let Dialog  = require('../../addons/dialog')
-let Button  = require('../../src/components/Button')
+let Button  = require('../../src/views/Button')
 let React   = require('react')
 let Section = require('../../addons/section')
 

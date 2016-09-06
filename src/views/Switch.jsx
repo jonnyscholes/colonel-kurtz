@@ -12,7 +12,7 @@ module.exports = React.createClass({
   },
 
   propTypes: {
-    app : React.PropTypes.object.isRequired
+    repo : React.PropTypes.object.isRequired
   },
 
   getInitialState() {
@@ -52,21 +52,21 @@ module.exports = React.createClass({
   },
 
   hasMaxChildren() {
-    let { app, parent } = this.props
+    let { repo, parent } = this.props
 
     if (!parent) {
-      return Blocks.filterChildren(app.state.blocks).length >= app.state.maxChildren
+      return repo.state.blocks.filter(b => b.parent).length >= repo.state.maxChildren
     }
 
-    let children = Blocks.getChildren(app.state.blocks, parent)
-    let type     = app.state.blockTypes.filter(t => t.id === parent.type)[0]
+    let children = repo.state.blocks.filter(b => b.parent === parent)
+    let type     = repo.state.blockTypes.filter(t => t.id === parent.type)[0]
 
     return children.length >= type.maxChildren
   },
 
   render() {
-    let { app, parent, position } = this.props
-    let types = typesForBlock(app.state.blockTypes, parent)
+    let { repo, parent, position } = this.props
+    let types = typesForBlock(repo.state.blockTypes, parent)
 
     let className = classNames('col-switch', {
       'col-switch-disabled': this.hasMaxChildren()
@@ -86,9 +86,9 @@ module.exports = React.createClass({
   },
 
   _onToggle() {
-    let { app, position, parent } = this.props
+    let { repo, position, parent } = this.props
 
-    let types = typesForBlock(app.state.blockTypes, parent)
+    let types = typesForBlock(repo.state.blockTypes, parent)
 
     // If only one type exists, instead of opening the nav, just
     // create that element

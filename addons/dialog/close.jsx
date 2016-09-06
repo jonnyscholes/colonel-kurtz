@@ -1,4 +1,4 @@
-let Btn   = require('../../src/components/Button')
+let Btn   = require('../../src/views/Button')
 let React = require('react')
 
 module.exports = React.createClass({

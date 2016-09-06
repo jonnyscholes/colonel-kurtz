@@ -19,10 +19,10 @@ function filter (blockTypes, acceptable) {
   return blockTypes.filter(type => acceptable.indexOf(type.id) > -1)
 }
 
-export default function register (app, { allow, maxChildren = Infinity, blocks, blockTypes }) {
+export default function register (repo, { allow, maxChildren = Infinity, blocks, blockTypes }) {
   if (blocks instanceof HTMLElement) {
     blocks = parseElement(blocks)
   }
 
-  app.replace({ maxChildren, blocks, blockTypes: filter(blockTypes, allow) })
+  repo.replace({ maxChildren, blocks, blockTypes: filter(blockTypes, allow) })
 }

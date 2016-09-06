@@ -4,7 +4,7 @@ let React  = require('react')
 module.exports = React.createClass({
 
   propTypes: {
-    app   : React.PropTypes.object.isRequired,
+    repo  : React.PropTypes.object.isRequired,
     block : React.PropTypes.object.isRequired,
     label : React.PropTypes.string.isRequired,
     id    : React.PropTypes.string.isRequired
@@ -20,8 +20,8 @@ module.exports = React.createClass({
   },
 
   isDisabled() {
-    let { app, block, isDisabled } = this.props
-    return isDisabled(app, block)
+    let { repo, block, isDisabled } = this.props
+    return isDisabled(repo, block)
   },
 
   render() {
@@ -35,8 +35,8 @@ module.exports = React.createClass({
   },
 
   _onClick() {
-    let { app, block, onClick } = this.props
-    onClick(app, block, this)
+    let { repo, block, onClick } = this.props
+    onClick(repo, block, this)
   }
 
 })

@@ -9,7 +9,7 @@ let respondsTo        = require('../utils/respondsTo')
 module.exports = React.createClass({
 
   propTypes: {
-    app   : React.PropTypes.object.isRequired,
+    repo  : React.PropTypes.object.isRequired,
     block : React.PropTypes.object.isRequired
   },
 
@@ -21,9 +21,9 @@ module.exports = React.createClass({
   },
 
   getBlockType() {
-    let { app, block } = this.props
+    let { repo, block } = this.props
 
-    let blockType = app.state.blockTypes.filter(i => i.id === block.type)[0]
+    let blockType = repo.state.blockTypes.filter(i => i.id === block.type)[0]
 
     return blockType ? blockType : new FallbackBlockType({ block })
   },
@@ -57,7 +57,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    let { app, block, children } = this.props
+    let { repo, block, children } = this.props
     let { component:Component } = this.getBlockType()
     let { menuOpen, extraMenuItems } = this.state
 
@@ -69,22 +69,22 @@ module.exports = React.createClass({
       <div className="col-editor-block">
         <div className={ `col-block col-block-${ block.type }` }>
           <Component ref="block" { ...block } content={ content } onChange={ this._onChange } >
-            <Switch app={ app } parent={ block } />
+            <Switch repo={ repo } parent={ block } />
             <Animator className="col-block-children">
               { children }
             </Animator>
           </Component>
 
-          <BlockMenu ref="menu" app={ app } block={ block } items={ extraMenuItems } active={ menuOpen } onOpen={ this.openMenu } onExit={ this.closeMenu } />
+          <BlockMenu ref="menu" repo={ repo } block={ block } items={ extraMenuItems } active={ menuOpen } onOpen={ this.openMenu } onExit={ this.closeMenu } />
         </div>
 
-        <Switch app={ app } position={ block } parent={ block.parent } />
+        <Switch repo={ repo } position={ block } parent={ block.parent } />
       </div>
     )
   },
 
   _onChange(content) {
-    let { app, block } = this.props
-    app.push(Actions.update, block, content)
+    let { repo, block } = this.props
+    repo.push(Actions.update, block, content)
   }
 })

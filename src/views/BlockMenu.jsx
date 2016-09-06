@@ -10,7 +10,7 @@ module.exports = React.createClass({
   statics: { Item },
 
   propTypes: {
-    app    : React.PropTypes.object.isRequired,
+    repo   : React.PropTypes.object.isRequired,
     block  : React.PropTypes.object.isRequired
   },
 
@@ -22,7 +22,7 @@ module.exports = React.createClass({
 
   getMenuItem(item) {
     let { id } = item
-    return (<Item key={ id } ref={ id } { ...item} { ...this.props} />)
+    return (<Item key={ id } ref={ id } { ...item} { ...this.props } />)
   },
 
   getMenuItems() {
