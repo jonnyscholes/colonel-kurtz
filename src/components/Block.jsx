@@ -5,6 +5,7 @@ let BlockMenu         = require('./BlockMenu')
 let FallbackBlockType = require('../models/FallbackBlockType')
 let Switch            = require('./Switch')
 let respondsTo        = require('../utils/respondsTo')
+let menuItems         = require('../config/menu')
 
 module.exports = React.createClass({
 
@@ -73,7 +74,7 @@ module.exports = React.createClass({
     return (
       <div className="col-editor-block">
         <div className={ `col-block col-block-${ block.type }` }>
-          <Component ref="block" { ...block } content={ content } onChange={ this._onChange } >
+          <Component ref="block" { ...block }  app={ app } block={ block } content={ content } menuItems={ menuItems } onChange={ this._onChange } >
             <Switch app={ app } parent={ block } />
             <Animator className="col-block-children">
               { children }
